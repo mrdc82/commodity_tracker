@@ -2,7 +2,7 @@
 Author: Me and ChatGpt"
 Date: 07-April-2023"
 Description: An API request to yahoo finance which will collect all historical data for dates specified, and print out the best months
-to buy and sell a commodity.
+to buy and sell a commodity. Please refer to yahoo finance for correct symbol names.
 '''
 
 import requests
@@ -23,9 +23,6 @@ emonth = int(input('Enter a end month: '))
 eday = int(input('Enter a end day: '))
 ed = date(eyear, emonth, eday)
 period2 = int(time.mktime(ed.timetuple()))
-
-#period1 = "946684800" # January 1, 2000 (in Unix timestamp format)
-#period2 = "1617753600" # April 7, 2021 (in Unix timestamp format)
 
 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data?symbol={symbol}&period1={period1}&period2={period2}&frequency=1mo"
 
