@@ -2,11 +2,11 @@
 Author: Me and ChatGpt
 Date: 07-April-2023"
 Description: An API request to yahoo finance which will collect all historical data for dates specified, and print out the best months
-to buy and sell a commodity. Please refer to yahoo finance for correct symbol names.
+to buy and sell a listing. Please refer to yahoo finance for correct symbol names.
 '''
 
 print("An API request to yahoo finance which will collect all historical data for dates specified, \nand print out the best months\
- to buy and sell a commodity. Please refer to yahoo finance for correct symbol names")
+ to buy and sell a listing. Please refer to yahoo finance for correct symbol names")
 
 import requests
 import statistics
