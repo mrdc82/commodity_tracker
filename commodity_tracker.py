@@ -2,7 +2,7 @@ import requests
 import statistics
 from datetime import datetime
 
-symbol = "HO=F" # symbol for heating oil futures
+symbol = "^GSPC" # symbol for heating oil futures
 period1 = "946684800" # January 1, 2000 (in Unix timestamp format)
 period2 = "1617753600" # April 7, 2021 (in Unix timestamp format)
 
