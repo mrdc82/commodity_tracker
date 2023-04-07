@@ -27,7 +27,7 @@ period2 = int(time.mktime(ed.timetuple()))
 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data?symbol={symbol}&period1={period1}&period2={period2}&frequency=1mo"
 
 headers = {
-    "X-RapidAPI-Key": "1ab9b8d3abmsha77579e23194c73p198159jsn024a23c51a17",
+    "X-RapidAPI-Key": input("enter API-KEY: "),
     "X-RapidAPI-Host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
 }
 
