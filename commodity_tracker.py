@@ -1,10 +1,34 @@
+'''
+Author: Me and ChatGpt"
+Date: 07-April-2023"
+Description: An API request to yahoo finance which will collect all historical data for dates specified, and print out the best months
+to buy and sell a commodity.
+'''
+
 import requests
 import statistics
-from datetime import datetime
+from datetime import date, datetime
+import time
 
-symbol = "^GSPC" # symbol for heating oil futures
-period1 = "946684800" # January 1, 2000 (in Unix timestamp format)
-period2 = "1617753600" # April 7, 2021 (in Unix timestamp format)
+symbol = input("Symbol: ") # symbol to retreive data for, ie. ^XAU
+
+syear = int(input('Enter a start year: '))
+smonth = int(input('Enter a start month: '))
+sday = int(input('Enter a start day: '))
+sd = date(syear, smonth, sday)
+period1 = int(time.mktime(sd.timetuple()))
+
+eyear = int(input('Enter a end year: '))
+emonth = int(input('Enter a end month: '))
+eday = int(input('Enter a end day: '))
+ed = date(eyear, emonth, eday)
+period2 = int(time.mktime(ed.timetuple()))
+
+print(period1)
+print(period2)
+
+#period1 = "946684800" # January 1, 2000 (in Unix timestamp format)
+#period2 = "1617753600" # April 7, 2021 (in Unix timestamp format)
 
 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data?symbol={symbol}&period1={period1}&period2={period2}&frequency=1mo"
 
@@ -31,10 +55,10 @@ if response.status_code == 200:
             monthly_averages[month - 1] /= monthly_counts[month - 1]
     highest_month = monthly_averages.index(max(monthly_averages)) + 1
     lowest_month = monthly_averages.index(min(monthly_averages)) + 1
-    print("Historical average monthly heating oil prices (in USD):\n")
+    print("Historical average monthly prices (in USD):\n")
     print("Month\tAverage Price")
     for month in range(1, 13):
         print(f"{month}\t{monthly_averages[month - 1]:.2f}")
-    print(f"\nHistorically, the highest average price for heating oil has been in month {highest_month}, and the lowest average price has been in month {lowest_month}.")
+    print(f"\nHistorically, the highest average price has been in month {highest_month}, and the lowest average price has been in month {lowest_month}.")
 else:
     print(f"Error {response.status_code} occurred.")
